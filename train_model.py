@@ -1,6 +1,9 @@
-from LinearRegression import LinearRegression
-from GetData import get_data
+#!/usr/bin/env python
+
 import pickle
+
+from GetData import get_data
+from LinearRegression import LinearRegression
 
 if __name__ == '__main__':
     print("Reading data..")

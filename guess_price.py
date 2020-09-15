@@ -1,11 +1,14 @@
+#!/usr/bin/env python
+
 from __future__ import with_statement
 
-from LinearRegression import LinearRegression
-from argparse import ArgumentParser
 import matplotlib.pyplot as plt
 import numpy as np
-from GetData import get_data
 import pickle
+from argparse import ArgumentParser
+
+from GetData import get_data
+from LinearRegression import LinearRegression
 
 
 def parse_args():

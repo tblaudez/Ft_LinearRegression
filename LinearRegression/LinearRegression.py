@@ -28,25 +28,10 @@ class LinearRegression:
     def theta1(self):
         return self.mean_theta1 * (self.max_y / self.max_x)
 
-    # def _get_sum_theta0(self, theta0, theta1):
-    #     value = 0.
-    #     for i in range(self.length):
-    #         value += self.hypothesis(theta0, theta1, self.x[i]) - self.y[i]
-    #     return value
-    #
-    # def _get_sum_theta1(self, theta0, theta1):
-    #     value = 0.
-    #     for i in range(self.length):
-    #         value += (self.hypothesis(theta0, theta1, self.x[i]) - self.y[i]) * self.x[i]
-    #     return value
-
     def _gradient_descent(self):
-        # sum0 = self._get_sum_theta0(self.mean_theta0, self.mean_theta1) / self.length
-        # sum1 = self._get_sum_theta1(self.mean_theta0, self.mean_theta1) / self.length
-
         tmp_theta0 = self.learning_rate * (1 / self.length) * \
-            sum(self.hypothesis(self.mean_theta0, self.mean_theta1, self.x[i]) - self.y[i]
-                for i in range(self.length))
+                     sum(self.hypothesis(self.mean_theta0, self.mean_theta1, self.x[i]) - self.y[i]
+                         for i in range(self.length))
 
         tmp_theta1 = self.learning_rate * (1 / self.length) * \
             sum((self.hypothesis(self.mean_theta0, self.mean_theta1, self.x[i]) - self.y[i]) * self.x[i]
@@ -60,16 +45,3 @@ class LinearRegression:
     def train_model(self):
         while self._gradient_descent() is False:
             continue
-
-    # def guess_price(self, mileage: int) -> str:
-    #     if self.trained is False:
-    #         print("Model is not trained. Starting training..")
-    #         self.train_model()
-    #         print("Done.", "", sep='\n')
-    #
-    #     theta0 = self.theta0 * self.max_y
-    #     theta1 = self.theta1 * (self.max_y / self.max_x)
-    #     price = int(self.hypothesis(theta0, theta1, mileage))
-    #
-    #     return f"According to this set of data, the price of a car " \
-    #         f"that has been drove for {mileage} miles is around ${price}"
